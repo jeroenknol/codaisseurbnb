@@ -23,6 +23,27 @@ RSpec.describe Room, type: :model do
       it "returns false" do
         expect(subject).to be false
       end
+
+
+      subject { room.available?(1.days.from_now, 10.days.from_now) }
+
+      it "returns false" do
+        expect(subject).to be false
+      end
+
+
+      subject { room.available?(1.days.from_now, 3.days.from_now) }
+
+      it "returns false" do
+        expect(subject).to be false
+      end
+
+
+      subject { room.available?(4.days.from_now, 5.days.from_now) }
+
+      it "returns false" do
+        expect(subject).to be false
+      end
     end
   end
 
